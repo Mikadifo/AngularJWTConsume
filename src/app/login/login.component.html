@@ -1,0 +1,30 @@
+<div class="mb-3">
+  <label for="usu" class="form-label">Nombre de usuario</label>
+  <input
+    type="text"
+    class="form-control"
+    id="usu"
+    placeholder="usuario"
+    #username
+  />
+</div>
+<div class="mb-3">
+  <label for="contra" class="form-label">Contrasena</label>
+  <input
+    type="text"
+    class="form-control"
+    id="contra"
+    placeholder="password"
+    #password
+  />
+</div>
+<div class="mb-3">
+  <button
+    type="button"
+    class="form-control"
+    id="contra"
+    (click)="iniciarSesion(username.value, password.value)"
+  >
+    Ingresar
+  </button>
+</div>

@@ -1,0 +1,22 @@
+<h1>Listado de usuarios</h1>
+<hr />
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <table>
+      <tr>
+        <th>Nombres Completos</th>
+        <th>Usuario</th>
+      </tr>
+      <tr *ngFor="let usuario of listadoUsuarios">
+        <td>
+          {{ usuario.nombreCompleto }}
+        </td>
+        <td>
+          {{ usuario.username }}
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="col-md-4"></div>
+</div>
