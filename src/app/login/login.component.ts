@@ -10,9 +10,11 @@ import { UsuarioService } from '../usuario.service';
 })
 export class LoginComponent implements OnInit {
   user: User = {
+    userId: 0,
     nombreCompleto: '',
     username: '',
     token: '',
+    contrasena: '',
   };
   constructor(private servicioUsuario: UsuarioService, private route: Router) {}
 
@@ -24,6 +26,7 @@ export class LoginComponent implements OnInit {
     this.servicioUsuario.iniciarSesion(usuario, contrasena).subscribe(
       (data) => {
         console.log(data);
+        this.user.userId = data.userId;
         this.user.nombreCompleto = data.nombreCompleto;
         this.user.token = data.token;
         this.user.username = data.username;

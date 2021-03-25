@@ -1,14 +1,51 @@
 <h1>Listado de usuarios</h1>
 <hr />
-<div class="row">
-  <div class="col-md-4"></div>
-  <div class="col-md-4">
+<div class="row ms-5" style="width: 50%">
+  <div class="col-md-12 mb-5">
+    <div class="mb-3">
+      <label for="fullName" class="form-label">Nombres Completos</label>
+      <input
+        type="text"
+        [(ngModel)]="selectedUser.nombreCompleto"
+        class="form-control"
+        id="fullName"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="username" class="form-label">Usuario</label>
+      <input
+        type="text"
+        [(ngModel)]="selectedUser.username"
+        class="form-control"
+        id="username"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="pass" class="form-label">Contrasena</label>
+      <input
+        type="text"
+        [(ngModel)]="selectedUser.contrasena"
+        class="form-control"
+        id="pass"
+      />
+    </div>
+
+    <button type="submit" class="btn btn-primary me-2" (click)="save()">
+      Guardar
+    </button>
+    <button type="submit" class="btn btn-primary" (click)="new()">Nuevo</button>
+  </div>
+  <div class="col-md-1111111111112">
     <table>
       <tr>
         <th>Nombres Completos</th>
         <th>Usuario</th>
       </tr>
-      <tr *ngFor="let usuario of listadoUsuarios">
+      <tr
+        *ngFor="let usuario of listadoUsuarios"
+        (click)="select(usuario)"
+        [class.active]="usuario === selectedUser"
+      >
         <td>
           {{ usuario.nombreCompleto }}
         </td>
