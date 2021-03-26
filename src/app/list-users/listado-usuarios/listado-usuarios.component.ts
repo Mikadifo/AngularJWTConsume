@@ -34,10 +34,17 @@ export class ListadoUsuariosComponent implements OnInit {
   }
 
   new() {
-    this.selectedUser = new User();
+    this.selectedUser = {
+      userId: 0,
+      nombreCompleto: '',
+      token: '',
+      username: '',
+      contrasena: '',
+    };
   }
 
   save() {
+    console.log(this.selectedUser);
     if (this.selectedUser.userId == 0) {
       this.usuarioService.saveUser(this.selectedUser).subscribe((data) => {
         this.usuarioService.getUsuarios().subscribe(
